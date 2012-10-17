@@ -35,7 +35,7 @@
 	<%= f.fields_for(:pictures, :html => { :class => "form-inline", :multipart => true}) do |builder| %>
 			<%= render "picture_fields", :f => builder %>
 	<% end %>
-	<p><%= link_to_add_fields "Add Related Product", f, :pictures %></p>
+	<p><%= link_to_add_fields "Add Picture", f, :pictures %></p>
   <div class="actions">
     <%= f.submit %>
   </div>

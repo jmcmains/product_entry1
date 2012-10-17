@@ -23,7 +23,7 @@ class PictureUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png)
   end
   def default_url
-    "/rails.png"
+    "rails.png"
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

@@ -27,6 +27,7 @@
 	<%= f.fields_for(:related_products, :html => { :class => "form-inline"}) do |builder| %>
 		<%= render "related_product_fields", :f => builder %>
 	<% end %>
+	<p><%= link_to_add_fields "Add Related Product", f, :related_products %></p>
 	<h2>Pictures</h2>
 	<% @product.pictures.each do |p| %>
 		<%= image_tag p.picture_url %><br>
