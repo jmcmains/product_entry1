@@ -1,0 +1,7 @@
+<span id="pe_form_<%= product.id %>" class="fields form-inline">
+	<% if ProductExercise.find_by_product_id_and_exercise_id(product,exercise) %>
+		<%= render 'rmprod', product: product, exercise: exercise %>
+	<% else %>
+		<%= render 'addprod', product: product, category: exercise %>
+	<% end %>
+</span>

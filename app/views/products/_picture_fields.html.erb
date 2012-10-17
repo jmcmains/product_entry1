@@ -1,0 +1,8 @@
+<p class="fields form-inline">
+	 <%= image_tag :picture_url %>
+  <%= f.file_field :picture %>
+  <%= f.text_field :remote_picture_url, placeholder: "or Image URL" %>
+  <%= link_to_remove_fields "-", f %>
+  <%= f.hidden_field :picture_cache %>
+</p>
+

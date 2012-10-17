@@ -1,0 +1,11 @@
+<p class="fields form-inline">
+  <%= f.text_field :category_name, data: {autocomplete_source: autocomplete_categories_path}, placeholder: "Category", class: "autocomplete-pc" %>
+  <%= link_to_remove_fields "-", f %>
+</p>
+<script>
+$(function() {
+	 $( ".autocomplete-pc" ).autocomplete({
+			source: $( "#product_product_categories_attributes_0_category_name" ).data('autocomplete-source')
+	});
+});
+</script>

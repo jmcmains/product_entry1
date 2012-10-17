@@ -1,0 +1,2 @@
+$("#pc_form_#{@category.id}").html("<%= escape_javascript(render('products/rmcat', product: @product, category: @category)) %>")
+

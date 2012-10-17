@@ -1,0 +1,3 @@
+<%= form_for product.product_exercises.find_by_exercise_id(exercise), :html => { :method => :delete, :class => "form-inline", :style => "display:inline"}, :remote => true do |f| %>
+	<%= f.submit exercise.name, class: "btn btn-danger" %>
+<% end %>

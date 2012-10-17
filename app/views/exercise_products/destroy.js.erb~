@@ -1,0 +1,2 @@
+$("#pc_form_<%= @product.id %>").html("<%= escape_javascript(render('categories/addprod', product: @product, category: @category)) %>")
+

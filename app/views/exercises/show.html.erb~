@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @exercise.name %>
+</p>
+<%= link_to "Previous", exercise_path(@exercise.id-1) if @exercise.id > 1 %> | <%= link_to "Next", exercise_path(@exericse.id+1) if @exercise.id < Exercise.count+1 %>
+<p>
+<h2> Products </h2>
+<% Product.all.each do |p| %>
+	<%= render 'pe_form', exercise: @exercise, product: p %>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<%= link_to 'Back', exercises_path %>

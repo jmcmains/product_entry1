@@ -1,0 +1,11 @@
+<p class="fields form-inline">
+  <%= f.text_field :exercise_name, data: {autocomplete_source: autocomplete_exercises_path}, placeholder: "Exercise", class: "autocomplete" %>
+  <%= link_to_remove_fields "-", f %>
+</p>
+<script>
+$(function() {
+	 $( ".autocomplete" ).autocomplete({
+			source: $( "#product_product_exercises_attributes_0_exercise_name" ).data('autocomplete-source')
+	});
+});
+</script>

@@ -1,0 +1,3 @@
+<%= form_for product.product_categories.find_by_category_id(category), :html => { :method => :delete, :class => "form-inline", :style => "display:inline"}, :remote => true do |f| %>
+	<%= f.submit "-", class: "btn btn-danger" %> <%= category.name %>
+<% end %>

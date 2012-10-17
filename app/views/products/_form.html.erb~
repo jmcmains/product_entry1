@@ -1,0 +1,41 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<p class="fields">
+    <%= f.text_field :name, placeholder: "Product Name" %><br>
+    <%= f.text_field :price, placeholder: "Price" %><br>
+    <%= f.text_area :description, placeholder: "Description"  %><br>
+  <h2>Categories</h2>
+	<%= f.fields_for(:product_categories, :html => { :class => "form-inline"}) do |builder| %>
+		<%= render "product_category_fields", :f => builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add Category", f, :product_categories %></p>
+	<h2>Exercises</h2>
+	<%= f.fields_for(:product_exercises, :html => { :class => "form-inline"}) do |builder| %>
+		<%= render "product_exercise_fields", :f => builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add Exercise", f, :product_exercises %></p>
+	<h2>Related Products</h2>
+	<%= f.fields_for(:related_products, :html => { :class => "form-inline"}) do |builder| %>
+		<%= render "related_product_fields", :f => builder %>
+	<% end %>
+	<h2>Pictures</h2>
+	<% @product.pictures.each do |p| %>
+		<%= image_tag p.picture_url %><br>
+	<% end %>
+	<%= f.fields_for(:pictures, :html => { :class => "form-inline", :multipart => true}) do |builder| %>
+			<%= render "picture_fields", :f => builder %>
+	<% end %>
+	<p><%= link_to_add_fields "Add Related Product", f, :pictures %></p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

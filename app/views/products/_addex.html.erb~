@@ -1,0 +1,5 @@
+<%= form_for product.product_exercises.build(:exercise_id => exercise.id), :html => { :class => "form-inline"}, :remote => true do |f| %>
+	<%= f.hidden_field :exercise_id %>
+	<%= f.hidden_field :product_id %>
+	<%= f.submit exercise.name, class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,11 @@
+<p class="fields form-inline">
+  <%= f.text_field :product_name, data: {autocomplete_source: autocomplete_products_path}, placeholder: "Related Product", class: "autocomplete-rp" %>
+  <%= link_to_remove_fields "-", f %>
+</p>
+<script>
+$(function() {
+	 $( ".autocomplete-rp" ).autocomplete({
+			source: $( "#product_related_products_attributes_0_product_name" ).data('autocomplete-source')
+	});
+});
+</script>

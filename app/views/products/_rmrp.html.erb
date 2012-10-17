@@ -1,0 +1,3 @@
+<%= form_for follower.related_products.find_by_followed_id(followed), :html => { :method => :delete, :class => "form-inline", :style => "display:inline"}, :remote => true do |f| %>
+	<%= f.submit followed.name, class: "btn btn-danger" %>
+<% end %>

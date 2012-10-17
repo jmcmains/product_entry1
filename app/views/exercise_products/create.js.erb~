@@ -1,0 +1,2 @@
+$("#pc_form_<%= @product.id %>").html("<%= escape_javascript(render('exercises/rmprod', product: @product, exercise: @exercise)) %>")
+

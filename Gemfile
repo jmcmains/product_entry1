@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'pg'
-
-
+gem 'sqlite3'
+gem 'bootstrap-sass'
+gem 'carrierwave'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

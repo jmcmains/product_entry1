@@ -1,0 +1,5 @@
+<%= form_for follower.related_products.build(:followed_id => followed.id), :html => { :class => "form-inline", :style => "display:inline"}, :remote => true do |f| %>
+	<%= f.hidden_field :followed_id %>
+	<%= f.hidden_field :follower_id %>
+	<%= f.submit followed.name, class: "btn btn-success" %>
+<% end %>

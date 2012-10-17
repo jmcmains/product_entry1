@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+<%= link_to "Previous", product_path(@product.id-1) if @product.id > 1 %> | <%= link_to "Next", product_path(@product.id+1) if @product.id < Product.count %>
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+<h2> Categories </h2>
+<% Category.all.each do |c| %>
+	<%= render 'pc_form', product: @product, category: c %>
+<% end %>
+<p>
+<h2> Exercises </h2>
+<% Exercise.all.each do |e| %>
+	<%= render 'pe_form', product: @product, exercise: e %>
+<% end %>
+</p>
+<p>
+<h2> Related Products </h2>
+<% Product.all.each do |p| %>
+	<%= render 'rp_form', follower: @product, followed: p %>
+<% end %>
+</p>
+
+<% @product.pictures.each do |p| %>
+	<%= image_tag p.picture_url %><br>
+<% end %>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

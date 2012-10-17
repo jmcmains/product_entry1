@@ -1,0 +1,5 @@
+<%= form_for exercise.exercise_products.build(:product_id => product.id), :url => { :controller => :exercise_products, :action => :create }, :html => { :class => "form-inline", :style => "display:inline"} do |f| %>
+	<%= f.hidden_field :exercise_id %>
+	<%= f.hidden_field :product_id %>
+	<%= f.submit product.name, class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,7 @@
+<span id="rp_form_<%= followed.id %>" class="fields form-inline">
+	<% if RelatedProduct.find_by_follower_id_and_followed_id(follower,followed) %>
+		<%= render 'rmrp', follower: follower, followed: followed %>
+	<% else %>
+		<%= render 'addrp', follower: follower, followed: followed %>
+	<% end %>
+</span>

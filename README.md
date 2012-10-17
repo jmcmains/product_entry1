@@ -1,1 +1,8 @@
-data loader for product files
+needs:
+Name
+Price
+Description
+Pictures
+Categories
+Exercises
+related products
