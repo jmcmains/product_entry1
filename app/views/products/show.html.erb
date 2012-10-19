@@ -12,7 +12,9 @@
 
 <p>
   <b>Description:</b>
-  <%= @product.description %>
+  <div style="margin-left:50px;padding:10px;width:600px;background-color:#eee">
+  <%= raw(@product.description) %>
+  </div>
 </p>
 <h2> Categories </h2>
 <% Category.all.each do |c| %>

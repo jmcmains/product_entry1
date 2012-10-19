@@ -1,0 +1,4 @@
+<%= form_for :product,:url=>{:controller=>"products", :action=>"create_csv"}, do |f| %>
+  <%= f.file_field :file %><br />
+  <%= f.submit "Load Data" %>
+<% end %>

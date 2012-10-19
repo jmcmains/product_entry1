@@ -4,7 +4,7 @@
   <b>Name:</b>
   <%= @product.name %>
 </p>
-<%= link_to "Previous", product_path(@product.id-1) if @product.id > 1 %> | <%= link_to "Next", product_path(@product.id+1) %>
+<%= link_to "Previous", product_path(@product.id-1) if @product.id > 1 %> | <%= link_to "Next", product_path(@product.id+1) if @product.id < Product.count %>
 <p>
   <b>Price:</b>
   <%= @product.price %>
@@ -12,7 +12,9 @@
 
 <p>
   <b>Description:</b>
-  <%= @product.description %>
+  <div style="margin-left:50px;padding:10px;width:600px;background-color:#ccc">
+  <%= raw(@product.description) %>
+  </div>
 </p>
 <h2> Categories </h2>
 <% Category.all.each do |c| %>

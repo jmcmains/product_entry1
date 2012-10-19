@@ -57,7 +57,6 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -68,7 +67,61 @@ class ProductsController < ApplicationController
       end
     end
   end
-
+  require 'csv'
+	def create_csv
+    infile = params[:product][:file].read
+		CSV.parse(infile, headers: true, col_sep: "\t") do |row|
+			name = row[1]
+			price = row[2]
+			desc = row[3]
+			weight = row[4]
+			resistance = row[5]
+			width = row[6]
+			length = row[7]
+			size = row[8]
+			material = row[9]
+			max_load = row[10]
+			what_you_get = row[11]
+			note = row[12]
+			ex_band_insert = row[13]
+			right_for_me = row[14]
+			right_for_me_pu = row[15]
+			product=Product.find_or_initialize_by_name(name)
+			full_desc="<h2>Description</h2>"
+			full_desc << desc 
+			if !note.blank?
+				full_desc << "<em>NOTE: Colors may vary. All circular exercise bands are 41in (104 cm) in length and come in three sizes with varying resistances. Our natural rubber latex is over 99.998% free of soluble proteins (latex allergens). Effects of use by people with latex sensitivity is unknown and not recommended.</em>"
+			end
+			full_desc << "<h2>Stats</h2><p>"
+			if !weight.blank?
+				full_desc << "<strong>Weight</strong>: " << weight << "<br>"
+			end
+			if !resistance.blank?
+				full_desc << "<strong>Resistance</strong>: " << resistance << "<br>"
+			end
+			if !width.blank?
+				full_desc << "<strong>Width</strong>: " << width << "<br>"
+			end
+			if !length.blank?
+				full_desc << "<strong>Length</strong>: " << length << "<br>"
+			end
+			if !size.blank?
+				full_desc << "<strong>Size</strong>: " << size << "<br>"
+			end
+			if !material.blank?
+				full_desc << "<strong>Material</strong>: " << material << "<br>"
+			end
+			if !max_load.blank?
+				full_desc << "<strong>Maximum Load</strong>: " << max_load << "<br>"
+			end
+			full_desc << "</p><h2>Package Includes</h2><p>" << what_you_get << "</p>"
+			if !ex_band_insert.blank?
+				full_desc << "<h2>Rubberbanditz Fitness Bands</h2><p>Our seamless latex bands are made through a continuous layering process to prevent breakage. For this reason, each band can stretch up to 2 1/2 times the original length, creating a wide range of tension levels.<br>Great for: Pullups - Powerlifting - Pilates - Yoga - CrossFit<br>Enhances Strengthening, Stretching and Toning<br>Tough on Muscles - Safe on Joints</p>"
+			end
+			product.save
+			product.update_attributes!(price: price, description: full_desc)
+  	end
+  end
   # PUT /products/1
   # PUT /products/1.json
   def update

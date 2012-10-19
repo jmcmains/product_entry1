@@ -3,7 +3,7 @@ class ExercisesController < ApplicationController
   # GET /exercises.json
   def index
     @exercises = Exercise.all
-
+		@exercise = Exercise.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @exercises }

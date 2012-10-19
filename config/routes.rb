@@ -2,6 +2,8 @@ ProductEntry::Application.routes.draw do
   resources :exercises do
 		collection do
 			get :autocomplete
+			get :new_csv
+			post :create_csv
 		end
 	end
 
@@ -20,6 +22,8 @@ ProductEntry::Application.routes.draw do
   resources :products do
 		collection do
 			get :autocomplete
+			get :new_csv
+			post :create_csv
 		end
 	end
 

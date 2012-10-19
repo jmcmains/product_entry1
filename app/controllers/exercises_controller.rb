@@ -14,7 +14,15 @@ class ExercisesController < ApplicationController
 		@exercises = Exercise.search(params[:term])
 		render json: @exercises.map(&:name)
 	end
-	
+	require 'csv'
+	def create_csv
+    infile = params[:exercise][:file].read
+		CSV.parse(infile, headers: true) do |row|
+			name = row[0]
+			exercise=Exercise.find_or_initialize_by_name(name)
+			exercise.save
+		end
+	end
   # GET /exercises/1
   # GET /exercises/1.json
   def show
