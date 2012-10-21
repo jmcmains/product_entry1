@@ -22,16 +22,16 @@
 <% @products.each do |product| %>
 <p>
   <b>Name:</b>
-  <%= @product.name %>
+  <%= product.name %>
 </p>
 <p>
   <b>Price:</b>
-  <%= @product.price %>
+  <%= product.price %>
 </p>
 <p>
   <b>Description:</b>
   <div style="margin-left:50px;padding:10px;width:600px;background-color:#eee">
-  <%= raw(@product.description) %>
+  <%= raw(product.description) %>
   </div>
 </p>
 <% end %>

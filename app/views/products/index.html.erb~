@@ -19,5 +19,20 @@
   </tr>
 <% end %>
 </table>
-
+<% @products.each do |product| %>
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+<p>
+  <b>Description:</b>
+  <div style="margin-left:50px;padding:10px;width:600px;background-color:#eee">
+  <%= raw(@product.description) %>
+  </div>
+</p>
+<% end %>
 <%= render 'form' %>
