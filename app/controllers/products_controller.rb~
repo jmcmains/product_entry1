@@ -114,7 +114,7 @@ class ProductsController < ApplicationController
 			if !max_load.blank?
 				full_desc << "<strong>Maximum Load</strong>: " << max_load << "<br>"
 			end
-			full_desc << "</p><h2>What You Get</h2><p>" << what_you_get << "</p>"
+			full_desc << "</p><h2>Package Includes</h2><p>" << what_you_get << "</p>"
 			if !ex_band_insert.blank?
 				full_desc << "<h2>Rubberbanditz Fitness Bands</h2><p>Our seamless latex bands are made through a continuous layering process to prevent breakage. For this reason, each band can stretch up to 2 1/2 times the original length, creating a wide range of tension levels.<br>Great for: Pullups - Powerlifting - Pilates - Yoga - CrossFit<br>Enhances Strengthening, Stretching and Toning<br>Tough on Muscles - Safe on Joints</p>"
 			end

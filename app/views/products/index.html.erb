@@ -13,15 +13,26 @@
 <% @products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td><%= product.description %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
     <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
+<% @products.each do |product| %>
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+<p>
+  <b>Description:</b>
+  <div style="margin-left:50px;padding:10px;width:600px;background-color:#eee">
+  <%= raw(@product.description) %>
+  </div>
+</p>
+<% end %>
 <%= render 'form' %>

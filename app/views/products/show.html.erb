@@ -32,9 +32,17 @@
 	<%= render 'rp_form', follower: @product, followed: p %>
 <% end %>
 </p>
+<div id="product_images">
+<%= render "pictures", product: @product %>
+</div>
+<%= form_for @picture, :html => { :class => "form-inline", :multipart => true}, do |f| %>
+<p class="fields form-inline">
+  <%= f.file_field :picture %>
+  <%= f.text_field :remote_picture_url, placeholder: "or Image URL" %>
+  <%= f.hidden_field :picture_cache %>
+  <%= f.submit '+', class: "btn btn-success" %>
+</p>
 
-<% @product.pictures.each do |p| %>
-	<%= image_tag p.picture_url %><br>
 <% end %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

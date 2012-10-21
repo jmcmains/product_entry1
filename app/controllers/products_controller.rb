@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+		@picture = Picture.new(product_id: @product.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
