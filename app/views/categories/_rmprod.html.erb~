@@ -1,4 +1,4 @@
-<%= form_for product.product_categories.find_by_category_id(category), :url => { controller: :category_products, action: :delete }, :html => { :method => :delete, :class => "form-inline", :style => "display:inline"}, remote: true do |f| %>
+<%= form_for ProductCategory.find_by_category_id_and_product_id(category,product), url: {controller: :category_products, action: :destroy}, :html => { :class => "form-inline", :style => "display:inline"}, remote: true do |f| %>
 	<%= f.hidden_field :category_id %>
 	<%= f.hidden_field :product_id %>
 	<%= f.submit product.name, class: "btn btn-danger" %>

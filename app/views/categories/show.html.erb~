@@ -7,7 +7,7 @@
 
 <p>
 <h2> Products </h2>
-<% Products.all.each do |p| %>
+<% Product.sort(&:id).all.each do |p| %>
 	<%= render 'pc_form', category: @category, product: p %>
 <% end %>
 </p>

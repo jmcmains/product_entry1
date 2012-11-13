@@ -1,5 +1,5 @@
 <span id="pc_form_<%= product.id %>" class="fields form-inline">
-	<% if CategoryProduct.find_by_product_id_and_category_id(product,category) %>
+	<% if ProductCategory.find_by_product_id_and_category_id(product,category) %>
 		<%= render 'rmprod', product: product, category: category %>
 	<% else %>
 		<%= render 'addprod', product: product, category: category %>
