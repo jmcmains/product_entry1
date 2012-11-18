@@ -19,5 +19,18 @@
 </table>
 
 <br />
+<ul>
+<% @exercises.each do |exercise| %>
+	<li>
+		<%= exercise.name %>
+		<ul>
+			<% exercise.products.each do |product| %>
+				<li><%= product.name %></li>
+			<% end %>
+		</ul>
+	</li>
+<% end %>
+</ul>
+<br />
 
 
