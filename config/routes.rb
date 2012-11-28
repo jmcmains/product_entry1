@@ -24,6 +24,7 @@ ProductEntry::Application.routes.draw do
 			get :autocomplete
 			get :new_csv
 			post :create_csv
+			get :sample
 		end
 	end
 

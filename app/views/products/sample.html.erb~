@@ -1,0 +1,61 @@
+<div id="back" style="height:230px;width:50px;vertical-align:center;text-align:center;padding:0px;display:inline-block;font-size:200%;font-weight:bold"><</div>
+<div id="main" style="height:212px;width:764px;overflow:auto;overflow-y:hidden;overflow-x:hidden;white-space:nowrap;vertical-align:middle;padding:0px;margin:20px;border:1px solid #000;display:inline-block;">
+<% Product.first(5).last(3).each do |p| %>
+	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
+		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
+	</div>
+<% end %>
+<% Product.first(5).each do |p| %>
+	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
+		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
+	</div>
+<% end %>
+<% Product.first(3).each do |p| %>
+	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
+		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
+	</div>
+<% end %>
+</div>
+<div id="forward" style="height:230px;width:50px;vertical-align:center;text-align:center;padding:0px;display:inline-block;font-size:200%;font-weight:bold">></div>
+<div id="test"></div>
+
+<div id="img" style="cursor:pointer;height:400px;width:990px;overflow:hidden;position:relative;border:1px solid #000">
+<%= image_tag "aboutus.png", style: "width:100%" %>
+<%= image_tag "play.png", style: "height:80px;width:80px;position:absolute;top:160px;left:455px;opacity:0.5;filter:alpha(opacity=50);" %>
+<div class="pageBannerDesc" style="background-color:#fff;opacity:0.5;filter:alpha(opacity=50);bottom: 0;left: 0;height: auto; padding: 10px; position: absolute;">
+	<h2 style="opacity:1;filter:alpha(opacity=100);padding: 0;margin: 0 0 10px 0;font-size: 36px;font-family: 'museo', Arial, Helvetica, sans-serif !important;">About Rubberbanditz</h2>
+	<p style="font-style: italic;font-size: 20px;line-height: 22px;font-weight: 500;">What the heck is it??</p>
+</div>
+<div class="pageBannerDesc" style="bottom: 0;left: 0;height: auto; padding: 10px; position: absolute;">
+	<h2 style="opacity:1;filter:alpha(opacity=100);padding: 0;margin: 0 0 10px 0;font-size: 36px;font-family: 'museo', Arial, Helvetica, sans-serif !important;">About Rubberbanditz</h2>
+	<p style="font-style: italic;font-size: 20px;line-height: 22px;font-weight: 500;">What the heck is it??</p>
+</div>
+</div>
+<script>
+$(function() {
+	$("#main").scrollLeft(256*3)
+});
+$("#img").click(function () {
+	$(this).html("<iframe width='990' height='400' src='http://www.youtube.com/embed/IubbfixvqQM?rel=0&amp;autoplay=1' frameborder='0' allowfullscreen></iframe>")
+});
+$("#forward").click(function () {
+	if($("#main").scrollLeft() < 256*2) {
+		$("#main").scrollLeft($('#main')[0].scrollWidth-$('#main').innerWidth()-256*2)
+	}
+	else if($("#main").scrollLeft() > $('#main')[0].scrollWidth-$('#main').innerWidth()-256*2) {
+		$("#main").scrollLeft(256*2)
+	}
+	$("#main").animate({scrollLeft: $("#main").scrollLeft()+256}, "slow")
+	
+});
+$("#back").click(function () {
+	if($("#main").scrollLeft() < 256*2) {
+		$("#main").scrollLeft($('#main')[0].scrollWidth-$('#main').innerWidth()-256*2)
+	}
+	else if($("#main").scrollLeft() > $('#main')[0].scrollWidth-$('#main').innerWidth()-256*2) {
+		$("#main").scrollLeft(256*2)
+	}
+  $("#main").animate({scrollLeft: $("#main").scrollLeft()-256}, "slow")
+});
+</script>
+
