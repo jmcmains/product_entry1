@@ -2,7 +2,7 @@
 <div id="main" style="height:212px;width:764px;overflow:auto;overflow-y:hidden;overflow-x:hidden;white-space:nowrap;vertical-align:middle;padding:0px;margin:20px;border:1px solid #000;display:inline-block;">
 <% [4,5,6,1,2,3,4,5,6,1,2,3].each do |p| %>
 	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
-		<%= image_tag "#{p}.jpg", style:"display: table-cell;text-align: center;vertical-align: center;" %>
+		<%= image_tag "#{p.to_s}.jpg", style:"display: table-cell;text-align: center;vertical-align: center;" %>
 	</div>
 <% end %>
 </div>
