@@ -1,18 +1,8 @@
 <div id="back" style="height:230px;width:50px;vertical-align:center;text-align:center;padding:0px;display:inline-block;font-size:200%;font-weight:bold"><</div>
 <div id="main" style="height:212px;width:764px;overflow:auto;overflow-y:hidden;overflow-x:hidden;white-space:nowrap;vertical-align:middle;padding:0px;margin:20px;border:1px solid #000;display:inline-block;">
-<% Product.all.sort_by(&:id).first(5).last(3).each do |p| %>
+<% [4,5,6,1,2,3,4,5,6,1,2,3].each do |p| %>
 	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
-		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
-	</div>
-<% end %>
-<% Product.first(5).each do |p| %>
-	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
-		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
-	</div>
-<% end %>
-<% Product.first(3).each do |p| %>
-	<div style="position:relative;height:200px;width:240px;border:1px solid #000;display:inline-block;vertical-align:top;margin:5px;margin-bottom:0px">
-		<%= image_tag p.pictures.first.picture_url, style:"display: table-cell;text-align: center;vertical-align: center;" %>
+		<%= image_tag "#{p}.jpg", style:"display: table-cell;text-align: center;vertical-align: center;" %>
 	</div>
 <% end %>
 </div>
